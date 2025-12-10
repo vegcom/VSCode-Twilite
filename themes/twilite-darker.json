@@ -1,0 +1,38 @@
+{
+  "name": "Twilite (Darker)",
+  "type": "dark",
+  "colors": {
+    "activityBar.background": "#141025",
+    "activityBar.foreground": "#f8f8f2",
+    "activityBar.inactiveForeground": "#a8a8a8",
+    "activityBarBadge.background": "#ff79c6",
+    "activityBarBadge.foreground": "#f8f8f2",
+    "black": "#21222c",
+    "blue": "#b084f5",
+    "brightBlack": "#6272a4",
+    "brightBlue": "#b084f5",
+    "brightCyan": "#79ddf0",
+    "brightGreen": "#50fa7b",
+    "brightPurple": "#ffa8eb",
+    "brightRed": "#ff6e6e",
+    "brightWhite": "#ffffff",
+    "brightYellow": "#ffffb8",
+    "cyan": "#79ddf0",
+    "foreground": "#f8f8f2",
+    "green": "#40e868",
+    "purple": "#f060b3",
+    "red": "#e84545",
+    "selection.background": "#44475a",
+    "white": "#a8a8a8",
+    "yellow": "#e0e878",
+    "cursorColor": "#ff79c6"
+  },
+  "tokenColors": [
+    {
+      "scope": ["comment", "punctuation.definition.comment"],
+      "settings": {
+        "foreground": "#6272a4"
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "twilite",
+  "displayName": "Twilite",
+  "description": "Easy reading, easy being — purple twilight vibes",
+  "version": "0.0.1",
+  "publisher": "vegcom",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vegcom/VSCode-Twilite.git"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Twilite",
+        "uiTheme": "vs-dark",
+        "path": "./themes/twilite.json"
+      },
+      {
+        "label": "Twilite (Darker)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/twilite-darker.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "Twilite",
+  "type": "dark",
+  "colors": {
+    "activityBar.background": "#18152a",
+    "activityBar.foreground": "#d8d8d8",
+    "activityBar.inactiveForeground": "#a0a0a0",
+    "activityBarBadge.background": "#ff79c6",
+    "activityBarBadge.foreground": "#f8f8f2",
+    "black": "#282a36",
+    "blue": "#a080d9",
+    "brightBlack": "#6272a4",
+    "brightBlue": "#b084f5",
+    "brightCyan": "#79ddf0",
+    "brightGreen": "#50fa7b",
+    "brightPurple": "#ffa8eb",
+    "brightRed": "#ff6e6e",
+    "brightWhite": "#ffffff",
+    "brightYellow": "#f1fa8c",
+    "cyan": "#70c9dd",
+    "foreground": "#d8d8d8",
+    "green": "#40d860",
+    "purple": "#d960a8",
+    "red": "#d84040",
+    "selection.background": "#44475a",
+    "white": "#a0a0a0",
+    "yellow": "#d0d870",
+    "cursorColor": "#ff79c6"
+  },
+  "tokenColors": [
+    {
+      "scope": ["comment", "punctuation.definition.comment"],
+      "settings": {
+        "foreground": "#6272a4"
+      }
+    }
+  ]
+}
