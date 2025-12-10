@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v2 
         with: 
           node-version: lts/*
-          cache: npm
+          # cache: npm
       - run: npm install && mkdir -p ./bin
       - run: npm run package
       - uses: actions/create-release@v1
