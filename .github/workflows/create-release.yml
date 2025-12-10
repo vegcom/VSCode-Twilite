@@ -2,8 +2,9 @@ name: Create Release
 on:
   push:
     branches: ["**"]
-  pull_request:
-    branches: ["**"]
+
+permissions:
+  contents: write
     
 jobs:
   release:
