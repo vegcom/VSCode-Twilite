@@ -2,7 +2,7 @@
   "name": "twilite",
   "displayName": "Twilite",
   "description": "Easy reading, easy being — purple twilight vibes",
-  "version": "0.0.3",
+  "version": "0.0.2",
   "publisher": "vegcom",
   "repository": {
     "type": "git",
@@ -27,5 +27,8 @@
         "path": "./themes/twilite-darker.json"
       }
     ]
+  },
+  "dependencies": {
+    "vsce": "^2.15.0"
   }
 }
