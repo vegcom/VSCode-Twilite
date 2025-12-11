@@ -17,8 +17,9 @@ jobs:
           node-version: lts/*
       - run: npm install
       - run: mkdir -vp ./bin || true
-      - run: vsce package -o bin/twilite.vsix
-      - run: vsce publish -i bin/twilite.vsix
+      - run: npx @vscode/vsce package -o bin/twilite.vsix
+      - run: npx @vscode/vsce publish -i bin/twilite.vsix
+        continue-on-error: true
         env:
           VSCE_PAT: ${{ secrets.VSCE_TOKEN }}
       - uses: actions/create-release@v1
