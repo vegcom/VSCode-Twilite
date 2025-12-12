@@ -1,40 +1,77 @@
-name: Create Release
+name: Publish Twilite
+
 on:
   push:
     tags:
-      - "v*" # triggers on v0.0.1, v1.0.0, etc.
+      - "v*"
+    branches:
+      - "feat/**"
+      - "feature/**"
 
 permissions:
   contents: write
-    
+  packages: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2 
-        with: 
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
           node-version: lts/*
-      - run: npm install
-      - run: mkdir -vp ./bin || true
-      - run: npx @vscode/vsce package -o bin/twilite.vsix
-      - run: npx @vscode/vsce publish -i bin/twilite.vsix
-        continue-on-error: true
+          cache: npm
+
+      - run: npm ci
+
+      # Extract version from package.json once
+      - id: version
+        run: echo "version=$(jq -r .version package.json)" >> $GITHUB_OUTPUT
+
+      # Decide what we're dealing with
+      - name: Set release type
+        id: type
+        run: |
+          if [[ "${{ github.ref_type }}" == "tag" ]]; then
+            echo "is_tag=true" >> $GITHUB_OUTPUT
+            if [[ "${{ github.ref_name }}" == *-* ]]; then
+              echo "prerelease=true" >> $GITHUB_OUTPUT
+            else
+              echo "prerelease=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "is_tag=false" >> $GITHUB_OUTPUT
+            echo "prerelease=true" >> $GITHUB_OUTPUT
+          fi
+
+      # Always package
+      - name: Package extension
+        run: |
+          npx vsce package --no-git-tag-version \
+            -o twilite-${{ steps.version.outputs.version }}${{ steps.type.outputs.prerelease == 'true' && format('-{0}', github.ref_name) || '' }}.vsix
+
+      # Only publish to Marketplace on real tags
+      - name: Publish to VS Code Marketplace
+        if: steps.type.outputs.is_tag == 'true'
+        run: |
+          npx vsce publish \
+            ${{ steps.type.outputs.prerelease == 'true' && '--pre-release' || '' }} \
+            --packagePath twilite-*.vsix
         env:
           VSCE_PAT: ${{ secrets.VSCE_TOKEN }}
-      - uses: actions/create-release@v1
-        id: create_release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # We don't always want to publish if we're updating repo just tag
+        continue-on-error: true 
+
+      # Always create a GitHub release (pre-release for branches)
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }}
-          draft: true
-      - uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: bin/twilite.vsix
-          asset_name: twilite.vsix
-          asset_content_type: application/octet-stream
+          tag_name: ${{ github.ref_name }}
+          name: Twilite ${{ github.ref_name }}
+          prerelease: ${{ steps.type.outputs.prerelease == 'true' }}
+          draft: false
+          files: twilite-*.vsix

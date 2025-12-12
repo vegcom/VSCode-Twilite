@@ -2,10 +2,16 @@
 
 Based on [vegcom/Twilite-Theme](https://github.com/vegcom/Twilite-Theme.git)
 
-## Twilite
+## Examples
 
-![Twilite](assets/images/twilite.png)
+### Twilite
 
-## Twilite Darker
+![Twilite](./assets/images/twilite.png)
 
-![Twilite Darker](assets/images/twilite-darker.png)
+### Twilite Darker
+
+![Twilite Darker](./assets/images/twilite-darker.png)
+
+## Development workflow
+
+[TODO.md](./TODO.md)
