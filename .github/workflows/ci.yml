@@ -49,7 +49,7 @@ jobs:
           fi
 
       # Path creation
-      - name: Package extension
+      - name: Path creation ( ./bin )
         run: mkdir -vp bin
 
       # Always package
