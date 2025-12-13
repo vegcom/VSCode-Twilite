@@ -10,7 +10,7 @@
 # P1
 
 [ ] HaaLeo/publish-vscode-extension for publish in `.github/workflows/ci.yml`
-[ ] rose-pine/vscode provide attribution
-[ ] rose-pine/vscode borrow icons
 
-# P2
+[x] rose-pine/vscode provide attribution
+
+[x] rose-pine/vscode borrow icons

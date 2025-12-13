@@ -2,8 +2,23 @@
   "name": "twilite",
   "displayName": "Twilite",
   "description": "Easy reading, easy being — purple twilight vibes",
-  "version": "0.0.1",
+  "icon": "assets/icon.png",
+  "version": "0.0.2",
   "publisher": "vegcom",
+  "author": {
+    "name": "vegcom",
+    "email": "vegcom@protonmail.com",
+    "url": "https://github.com/vegcom"
+  },
+  "contributors": [
+    {
+      "name": "the outstanding contributors to `Rosé Pine Theme`",
+      "url": "https://rosepinetheme.com/"
+    },
+    {
+      "name": "Eve, for tutoring me through it"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/vegcom/VSCode-Twilite.git"
@@ -15,6 +30,13 @@
     "Themes"
   ],
   "contributes": {
+    "iconThemes": [
+      {
+        "id": "twilite-icon",
+        "label": "Twilite Icons",
+        "path": "./icons/twilite-icon-theme.json"
+      }
+    ],
     "themes": [
       {
         "label": "Twilite",

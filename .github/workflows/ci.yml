@@ -52,7 +52,7 @@ jobs:
       - name: Package extension
         run: |
           npx vsce package --no-git-tag-version \
-            -o twilite-${{ steps.version.outputs.version }}${{ steps.type.outputs.prerelease == 'true' && format('-{0}', github.ref_name) || '' }}.vsix
+            -o bin/twilite-${{ steps.version.outputs.version }}${{ steps.type.outputs.prerelease == 'true' && format('-{0}', github.ref_name) || '' }}.vsix
 
       # Only publish to Marketplace on real tags
       - name: Publish to VS Code Marketplace
@@ -60,7 +60,7 @@ jobs:
         run: |
           npx vsce publish \
             ${{ steps.type.outputs.prerelease == 'true' && '--pre-release' || '' }} \
-            --packagePath twilite-*.vsix
+            -i bin/twilite-*.vsix
         env:
           VSCE_PAT: ${{ secrets.VSCE_TOKEN }}
         # We don't always want to publish if we're updating repo just tag
@@ -74,4 +74,4 @@ jobs:
           name: Twilite ${{ github.ref_name }}
           prerelease: ${{ steps.type.outputs.prerelease == 'true' }}
           draft: false
-          files: twilite-*.vsix
+          files: bin/twilite-*.vsix
