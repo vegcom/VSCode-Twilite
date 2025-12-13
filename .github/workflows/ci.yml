@@ -48,6 +48,10 @@ jobs:
             echo "prerelease=true" >> $GITHUB_OUTPUT
           fi
 
+      # Path creation
+      - name: Package extension
+        run: mkdir -vp bin
+
       # Always package
       - name: Package extension
         run: |
