@@ -13,3 +13,7 @@ Based on [vegcom/Twilite-Theme](https://github.com/vegcom/Twilite-Theme.git)
 ### Twilite Darker
 
 ![Twilite Darker](./assets/images/twilite-darker.png)
+
+## Attribution
+
+Icons from: [Rosé Pine Theme](https://rosepinetheme.com/)
