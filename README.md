@@ -16,4 +16,6 @@ Based on [vegcom/Twilite-Theme](https://github.com/vegcom/Twilite-Theme.git)
 
 ## Attribution
 
-Icons from: [Rosé Pine Theme](https://rosepinetheme.com/)
+* Icons from: [Rosé Pine Theme](https://rosepinetheme.com/)
+
+* Eve, for tutoring me through it
